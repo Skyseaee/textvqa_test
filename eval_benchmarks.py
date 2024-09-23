@@ -104,8 +104,8 @@ def eval_model(args, path: str):
 
     # data_loader = create_data_loader(questions, args.image_folder)
     image_folder = os.path.join(path, args.image_folder)
-    # server_addr = "http://sg9.aip.mlp.shopee.io/aip-svc-52/aigc-service-llm-7b-fp16"
-    server_addr = "http://0.0.0.0:2333"
+    server_addr = "http://sg9.aip.mlp.shopee.io/aip-svc-52/aigc-service-llm-int4"
+    # server_addr = "http://0.0.0.0:2333"
     api_client = api_server.APIClient(server_addr)
 
     for line in tqdm(questions, total=len(questions)):
