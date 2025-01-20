@@ -115,7 +115,7 @@ class Task(abc.ABC):
     
     def download(self, data_dir: str=None, download_config: dict=None, cache_dir: str='.dataset', download_mode=None, from_hf=False) -> str:
         if not from_hf:
-            token = download_config.get("AIP_TOKEN", 'FcbgizlexopCBjrwsFuEjqhnfklyoFdr')
+            token = download_config.get("AIP_TOKEN", '')
 
             dataset_id = download_config.get("datatset_id", '3746')
             dataset_commit = download_config.get("dataset_commit", 'a50f6734')
