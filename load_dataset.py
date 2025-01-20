@@ -6,7 +6,6 @@ from torchvision.transforms import Compose, ColorJitter, ToTensor, Resize
 from torch.utils.data import DataLoader
 
 from datatoolchain import load_from_hub, load_from_local, storage
-from datatoolchain.features import RefImage
 from datatoolchain.datasets import AIStudioDataset
 from datatoolchain.storage import DatasetStorage
 

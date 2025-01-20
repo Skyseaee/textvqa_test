@@ -82,7 +82,7 @@ def create_data_loader(
     return data_loader
 
 
-def eval_model(args, path: str):
+def inference_model(args, path: str):
     # Model
     disable_torch_init()
 
@@ -104,8 +104,7 @@ def eval_model(args, path: str):
 
     # data_loader = create_data_loader(questions, args.image_folder)
     image_folder = os.path.join(path, args.image_folder)
-    server_addr = "http://sg9.aip.mlp.shopee.io/aip-svc-52/aigc-service-llm-int4"
-    # server_addr = "http://0.0.0.0:2333"
+    server_addr = args.api_address
     api_client = api_server.APIClient(server_addr)
 
     for line in tqdm(questions, total=len(questions)):
@@ -164,6 +163,7 @@ def eval_model(args, path: str):
         )
         # ans_file.flush()
     ans_file.close()
+    return answers_file
 
 
 if __name__ == "__main__":
@@ -180,6 +180,7 @@ if __name__ == "__main__":
     parser.add_argument("--top_p", type=float, default=None)
     parser.add_argument("--num_beams", type=int, default=1)
     parser.add_argument("--max_new_tokens", type=int, default=128)
+    parser.add_argument("--api-address", type=str, default="http://localhost:23333")
     args = parser.parse_args()
 
     token = os.getenv("AIP_TOKEN", 'FcbgizlexopCBjrwsFuEjqhnfklyoFdr')
@@ -190,4 +191,4 @@ if __name__ == "__main__":
 
     dataset = datasets.load_storage_dataset(token, int(dataset_id), dataset_commit)
     folder = datasets.download_files(dataset, str(dataset_id) + dataset_commit)
-    eval_model(args, folder)
+    inference_model(args, folder)
