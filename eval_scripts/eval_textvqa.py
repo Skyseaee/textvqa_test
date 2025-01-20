@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 import os
 import json
 import re
@@ -15,7 +15,7 @@ class TextVQAConfig:
     result_file: str = None
     dataset_path: str = "textvqa"
     dataset_name: str = "default"
-    metric_list: List[str] = ["accuracy"]
+    metric_list: List[str] = field(default_factory=lambda: ["accuracy"])
 
 
 @TaskRegistry.register("textvqa")
