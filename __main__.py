@@ -4,6 +4,7 @@ import os
 
 from eval_benchmarks import inference_model
 from eval_scripts.tasks import Task, TaskRegistry
+from eval_scripts.eval_textvqa import TextVQATask
 
 
 def parser_task_name(tasks: str):
