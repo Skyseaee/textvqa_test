@@ -12,7 +12,7 @@ annotated-types==0.7.0
 anthropic==0.39.0
 anyio==4.4.0
 anykeystore==0.2
-archspec @ file:///home/conda/feedstock_root/build_artifacts/archspec_1708969572489/work
+archspec==0.2.3
 asgiref==3.8.1
 async-timeout==4.0.3
 attrs==23.2.0
@@ -22,28 +22,28 @@ bcrypt==4.2.1
 bitsandbytes==0.41.0
 black==24.1.0
 blinker==1.9.0
-boltons @ file:///home/conda/feedstock_root/build_artifacts/boltons_1711936407380/work
+boltons==24.0.0
 boto3==1.28.64
 botocore==1.31.64
-Brotli @ file:///home/conda/feedstock_root/build_artifacts/brotli-split_1695989787169/work
+Brotli==1.1.0
 build==1.2.2.post1
 cachetools==5.5.0
-certifi @ file:///home/conda/feedstock_root/build_artifacts/certifi_1720457958366/work/certifi
-cffi @ file:///home/conda/feedstock_root/build_artifacts/cffi_1696001684923/work
+certifi==2024.7.4
+cffi==1.16.0
 cfgv==3.4.0
 chardet==5.2.0
-charset-normalizer @ file:///home/conda/feedstock_root/build_artifacts/charset-normalizer_1698833585322/work
+charset-normalizer==3.3.2
 chroma-hnswlib==0.7.6
 chromadb==0.6.2
 click==8.1.7
 cloudpickle==3.1.0
-colorama @ file:///home/conda/feedstock_root/build_artifacts/colorama_1666700638685/work
+colorama==0.4.6
 coloredlogs==15.0.1
 compressed-tensors==0.6.0
-conda @ file:///home/conda/feedstock_root/build_artifacts/conda_1722273159603/work
-conda-libmamba-solver @ file:///home/conda/feedstock_root/build_artifacts/conda-libmamba-solver_1706566000184/work/src
-conda-package-handling @ file:///home/conda/feedstock_root/build_artifacts/conda-package-handling_1691048088238/work
-conda_package_streaming @ file:///home/conda/feedstock_root/build_artifacts/conda-package-streaming_1691009212940/work
+conda==24.7.1
+conda-libmamba-solver==24.1.0
+conda-package-handling==2.2.0
+conda_package_streaming==0.9.0
 contourpy==1.3.0
 cryptacular==1.6.2
 cryptography==43.0.0
@@ -57,7 +57,7 @@ Deprecated==1.2.15
 dill==0.3.7
 diskcache==5.6.3
 distlib==0.3.8
-distro @ file:///home/conda/feedstock_root/build_artifacts/distro_1704321475663/work
+distro==1.9.0
 docker-pycreds==0.4.0
 docstring_parser==0.16
 durationpy==0.9
@@ -74,9 +74,9 @@ Flask==3.1.0
 Flask-SQLAlchemy==3.1.1
 flatbuffers==24.12.23
 fonttools==4.53.1
-frozendict @ file:///home/conda/feedstock_root/build_artifacts/frozendict_1715092766944/work
+frozendict==2.4.4
 frozenlist==1.4.1
--e git+ssh://git@github.com/Skyseaee/fast-chat-self.git@3e531c6918e58cb67d47390aa59d7f190e050d65#egg=fschat
+fschat==0.2.36
 fsspec==2023.10.0
 ftfy==6.3.1
 gguf==0.10.0
@@ -98,7 +98,7 @@ huggingface-hub==0.24.5
 humanfriendly==10.0
 hupper==1.12.1
 identify==2.6.2
-idna @ file:///home/conda/feedstock_root/build_artifacts/idna_1701026962277/work
+idna==3.6
 importlib_metadata==8.4.0
 importlib_resources==6.4.5
 iniconfig==2.0.0
@@ -111,8 +111,8 @@ jmespath==1.0.1
 joblib==1.4.2
 json-fix==1.0.0
 jsonlines==4.0.0
-jsonpatch @ file:///home/conda/feedstock_root/build_artifacts/jsonpatch_1695536281965/work
-jsonpointer @ file:///home/conda/feedstock_root/build_artifacts/jsonpointer_1695397238043/work
+jsonpatch==1.33
+jsonpointer==2.4
 jsonschema==4.23.0
 jsonschema-specifications==2023.12.1
 kiwisolver==1.4.5
@@ -123,22 +123,22 @@ langchain-text-splitters==0.3.5
 langsmith==0.2.10
 lark==1.2.2
 latex2mathml==3.77.0
-libmambapy @ file:///home/conda/feedstock_root/build_artifacts/mamba-split_1711394305528/work/libmambapy
+libmambapy==1.5.8
 List==1.3.0
--e git+https://github.com/LLaVA-VL/LLaVA-NeXT@79ef45a6d8b89b92d7a8525f077c3a3a9894a87d#egg=llava
+llava==1.7.0.dev0
 llvmlite==0.43.0
 lm-format-enforcer==0.10.6
--e git+https://github.com/EvolvingLMMs-Lab/lmms-eval@3bf3b67de27c4f5cde8e1a1f70d1ac9144eadcb5#egg=lmms_eval
+lmms_eval==0.2.4
 loguru==0.7.2
 lxml==5.3.0
-mamba @ file:///home/conda/feedstock_root/build_artifacts/mamba-split_1711394305528/work/mamba
+mamba==1.5.8
 markdown-it-py==3.0.0
 markdown2==2.5.0
 MarkupSafe==2.1.5
 matplotlib==3.9.2
 mbstrdecoder==1.1.3
 mdurl==0.1.2
-menuinst @ file:///home/conda/feedstock_root/build_artifacts/menuinst_1705068285533/work
+menuinst==2.0.2
 mistral_common==1.4.4
 mmengine-lite==0.10.4
 mmh3==4.1.0
@@ -192,7 +192,7 @@ opentelemetry-util-http==0.50b0
 orjson==3.10.7
 outlines==0.0.46
 overrides==7.7.0
-packaging @ file:///home/conda/feedstock_root/build_artifacts/packaging_1710075952259/work
+packaging==24.0
 pandas==2.2.2
 partial-json-parser==0.2.1.1.post4
 PasteDeploy==3.1.0
@@ -201,16 +201,17 @@ pathvalidate==3.2.1
 pbkdf2==1.3
 peft==0.4.0
 pillow==10.4.0
+pip==24.3.1
 pipenv==2024.0.1
 plaster==1.1.2
 plaster-pastedeploy==1.0.1
-platformdirs @ file:///home/conda/feedstock_root/build_artifacts/platformdirs_1706713388748/work
+platformdirs==4.2.0
 pluggy==1.5.0
 portalocker==3.0.0
 posthog==3.7.5
 pre_commit==4.0.1
-prometheus-fastapi-instrumentator==7.0.0
 prometheus_client==0.21.0
+prometheus-fastapi-instrumentator==7.0.0
 prompt_toolkit==3.0.48
 protobuf==5.29.3
 psutil==6.0.0
@@ -223,12 +224,12 @@ pyasn1_modules==0.4.1
 pybind11==2.13.6
 pycocoevalcap==1.2
 pycocotools==2.0.8
-pycosat @ file:///home/conda/feedstock_root/build_artifacts/pycosat_1696355758174/work
+pycosat==0.6.6
 pycountry==24.6.1
-pycparser @ file:///home/conda/feedstock_root/build_artifacts/pycparser_1711811537435/work
+pycparser==2.22
 pydantic==2.10.5
-pydantic-settings==2.6.1
 pydantic_core==2.27.2
+pydantic-settings==2.6.1
 pydub==0.25.1
 Pygments==2.18.0
 PyJWT==2.10.1
@@ -238,7 +239,7 @@ PyPika==0.48.9
 pyproject_hooks==1.2.0
 pyramid==2.0.2
 pyramid-mailer==0.15.1
-PySocks @ file:///home/conda/feedstock_root/build_artifacts/pysocks_1661604839144/work
+PySocks==1.7.1
 pytablewriter==1.2.0
 pytest==8.3.4
 python-dateutil==2.9.0.post0
@@ -252,15 +253,15 @@ ray==2.39.0
 referencing==0.35.1
 regex==2024.7.24
 repoze.sendmail==4.4.1
-requests @ file:///home/conda/feedstock_root/build_artifacts/requests_1684774241324/work
+requests==2.31.0
 requests-oauthlib==2.0.0
 requests-toolbelt==1.0.0
 rfc3986==1.5.0
 rich==13.8.0
 rpds-py==0.20.0
 rsa==4.9
-ruamel.yaml @ file:///home/conda/feedstock_root/build_artifacts/ruamel.yaml_1707298115475/work
-ruamel.yaml.clib @ file:///home/conda/feedstock_root/build_artifacts/ruamel.yaml.clib_1707314473442/work
+ruamel.yaml==0.18.6
+ruamel.yaml.clib==0.2.8
 ruff==0.6.4
 s3fs==2023.10.0
 s3transfer==0.7.0
@@ -273,6 +274,7 @@ sentence-transformers==3.3.1
 sentencepiece==0.1.99
 sentry-sdk==2.14.0
 setproctitle==1.3.3
+setuptools==75.7.0
 shellingham==1.5.4
 shopee-aip-datasets==0.1.80
 shopee_ais==0.1.13
@@ -300,14 +302,14 @@ tomli==2.0.1
 tomlkit==0.12.0
 torch==2.1.2
 torchvision==0.16.2
-tqdm @ file:///home/conda/feedstock_root/build_artifacts/tqdm_1707598593068/work
+tqdm==4.66.2
 tqdm-multiprocess==0.0.11
 transaction==5.0
-transformers @ git+https://github.com/huggingface/transformers.git@1c39974a4c4036fd641bc1191cc32799f85715a4
+transformers==4.40.0.dev0
 transformers-stream-generator==0.0.5
 translationstring==1.4
 triton==2.1.0
-truststore @ file:///home/conda/feedstock_root/build_artifacts/truststore_1694154605758/work
+truststore==0.8.0
 typepy==1.3.2
 typer==0.12.5
 typing_extensions==4.12.2
@@ -328,6 +330,7 @@ WebOb==1.8.9
 websocket-client==1.8.0
 websockets==11.0.3
 Werkzeug==3.1.3
+wheel==0.43.0
 wrapt==1.16.0
 WTForms==3.2.1
 wtforms-recaptcha==0.3.2
