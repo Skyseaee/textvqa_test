@@ -11,7 +11,7 @@ from llava.eval.m4c_evaluator import TextVQAAccuracyEvaluator
 @dataclass
 class TextVQAConfig:
     task: str = "textvqa"
-    annotation_file: str = None
+    annotation_file: str = "TextVQA_0.5.1_val.json"
     result_file: str = None
     dataset_path: str = "textvqa"
     dataset_name: str = "default"
@@ -65,7 +65,9 @@ class TextVQATask(Task):
         :param result_file: path of result file
         :param kwargs: other kwargs
         """
-        self.annotations = self._load_annotations(self.config.annotation_file)
+        annotation_path = os.path.join(self.data_dir, os.path.join('s3upload', self.config.annotation_file))
+        annotation_path = os.path.join(self.cache_path, annotation_path)
+        self.annotations = self._load_annotations(annotation_path)
 
         result_file = result_file or self.config.result_file
         if not result_file:

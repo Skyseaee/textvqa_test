@@ -108,6 +108,8 @@ class Task(abc.ABC):
         """
         self.from_hf = from_hf
         self.config = config
+        self.cache_path = cache_dir
+        self.data_dir = data_dir
         # self.download(data_dir, cache_dir, download_mode, self.from_hf)
         
     
@@ -117,6 +119,8 @@ class Task(abc.ABC):
 
             dataset_id = download_config.get("datatset_id", '3746')
             dataset_commit = download_config.get("dataset_commit", 'a50f6734')
+            self.data_dir = dataset_id + dataset_commit
+            self.cache_path = cache_dir
             dataset = load_storage_dataset(token, int(dataset_id), dataset_commit)
             return download_files(dataset, str(dataset_id) + dataset_commit, cache_dir=cache_dir)
         else:
