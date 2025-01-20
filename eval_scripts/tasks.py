@@ -108,7 +108,7 @@ class Task(abc.ABC):
         """
         self.from_hf = from_hf
         self.config = config
-        self.download(data_dir, cache_dir, download_mode, self.from_hf)
+        # self.download(data_dir, cache_dir, download_mode, self.from_hf)
         
     
     def download(self, data_dir: str=None, download_config: dict=None, cache_dir: str='.dataset', download_mode=None, from_hf=False) -> str:

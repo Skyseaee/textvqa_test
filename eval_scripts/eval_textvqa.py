@@ -34,7 +34,7 @@ class TextVQATask(Task):
         super().__init__(**kwargs)
         self.from_hf = False
         self.config = config if config else TextVQAConfig()
-        self.annotations = self._load_annotations(self.config.annotation_file)
+        # self.annotations = self._load_annotations(self.config.annotation_file)
         self.evaluator = TextVQAAccuracyEvaluator()
 
     def _load_annotations(self, annotation_file: str) -> Dict:
@@ -65,6 +65,8 @@ class TextVQATask(Task):
         :param result_file: path of result file
         :param kwargs: other kwargs
         """
+        self.annotations = self._load_annotations(self.config.annotation_file)
+
         result_file = result_file or self.config.result_file
         if not result_file:
             raise ValueError("Result file path is required for evaluation.")
