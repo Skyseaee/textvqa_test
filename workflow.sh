@@ -5,7 +5,7 @@ usage() {
 Usage: All options are needed!
     -d: device_id (e.g., 0 or 0,1 or 2,3 or 0,1,2,3)
     -t: tp (e.g., 1, 2, 4...)
-    -m: model_name
+    -m: model_path
     -b: backend (e.g., lmdeploy/vllm/tensorrt-llm)
     -s: service port (default: 8080)
     -n: parallel num (default: 50)
@@ -18,13 +18,14 @@ service_port=8080
 backend="lmdeploy"
 tp=1
 parallel=50
+tasks="textvqa"  # 初始化 tasks 变量
 
 # Parse command-line arguments
-while getopts "p:d:t:m:b:s:h" opt; do
+while getopts "d:t:m:b:s:n:k:h" opt; do  # 修改 getopts 选项列表
     case $opt in
         d) device_id="$OPTARG" ;;
         t) tp="$OPTARG" ;;
-        m) model_name="$OPTARG" ;;
+        m) model_path="$OPTARG" ;;
         b) backend="$OPTARG" ;;
         s) service_port="$OPTARG" ;;
         n) parallel="$OPTARG" ;;
@@ -35,7 +36,7 @@ while getopts "p:d:t:m:b:s:h" opt; do
 done
 
 # Check if all required variables are set
-if [[ -z "$device_id" || -z "$model_name" || -z "$backend" ]]; then
+if [[ -z "$device_id" || -z "$model_path" || -z "$backend" ]]; then
     echo "Error: Missing required arguments."
     usage
     exit 1
@@ -81,7 +82,7 @@ function open_model_server() {
         exit 1
     fi
 
-    sleep 5m
+    sleep 3m
     echo "Waiting for server to start..."
 }
 
@@ -89,16 +90,16 @@ function open_model_server() {
 function close_model_server() {
     echo "Stopping model server..."
     if command -v lmdeploy >/dev/null 2>&1; then
-	    # pkill -f "lmdeploy serve api_server"
-	    kill -9 "$lmdeploy_pid"
+        # pkill -f "lmdeploy serve api_server"
+        kill -9 "$lmdeploy_pid"
     else
-    	container_id=$(docker ps -a | grep ${CONTAINER_NAME} | awk '{print $1 }')
-    	if [[ -n "$container_id" ]]; then
-        	docker stop ${container_id}
-        	docker rm ${container_id}
-    	else
-        	echo "No container found with name ${CONTAINER_NAME}"
-    	fi
+        container_id=$(docker ps -a | grep ${CONTAINER_NAME} | awk '{print $1 }')
+        if [[ -n "$container_id" ]]; then
+            docker stop ${container_id}
+            docker rm ${container_id}
+        else
+            echo "No container found with name ${CONTAINER_NAME}"
+        fi
     fi
 }
 
@@ -106,20 +107,24 @@ function close_model_server() {
 open_model_server
 
 # Install the env
-pip install -r requirements.txt
-pip install pillow
+# pip install -r requirements-min.txt
+if ! python3 -c "import PIL" &> /dev/null; then
+    pip install pillow
+fi
 pip install -U shopee-aip-datasets -i https://pypi.shopee.io/
-git clone https://github.com/haotian-liu/LLaVA.git
-cd LLaVA
-pip install -e .
-cd ..
+if ! python3 -c "import llava" &> /dev/null; then
+    git clone https://github.com/haotian-liu/LLaVA.git
+    cd LLaVA
+    pip install -e .
+    cd ..
+fi
 
 export AIP_TOKEN=FcbgizlexopCBjrwsFuEjqhnfklyoFdr
 
 python3 __main__.py \
-    --model-path $model_name \
+    --model-path $model_path \
     --task-name  $tasks \
-    --api-address http://$service_name:$service_port \
+    --api-address http://$service_name:$service_port
 
 # Stop model server
 close_model_server

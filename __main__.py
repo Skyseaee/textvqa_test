@@ -47,6 +47,7 @@ def main():
             dataset_commit = os.getenv("AIP_DATASET_COMMIT_ID", 'a50f6734')
             download_config["datatset_id"] = dataset_id
             download_config["datatset_commit"] = dataset_commit
+            download_config["AIP_TOKEN"] = os.getenv("AIP_TOKEN", "")
             folder = task.download(download_config=download_config)
         else:
             # download dataset from hf

@@ -30,7 +30,7 @@ def load_ais_dataset(token: str, dataset_id: int, dataset_commit: str,
 
 
 def load_storage_dataset(token: str, dataset_id: int, dataset_commit: str) -> DatasetStorage:
-    os.environ['AIS_TOKEN'] = token
+    os.environ['AIS_TOKEN'] = token or "FcbgizlexopCBjrwsFuEjqhnfklyoFdr"
     sto = storage.DatasetStorage.create_io_storage(dataset_id=dataset_id, commit_id=dataset_commit)
     return sto
 
