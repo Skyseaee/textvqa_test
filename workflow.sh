@@ -107,12 +107,12 @@ function close_model_server() {
 open_model_server
 
 # Install the env
-pip install -r requirements-min.txt
-pip install -U shopee-aip-datasets -i https://pypi.shopee.io/
+pip3 install -r requirements-min.txt
+pip3 install -U shopee-aip-datasets -i https://pypi.shopee.io/
 if ! python3 -c "import llava" &> /dev/null; then
     git clone https://github.com/haotian-liu/LLaVA.git
     cd LLaVA
-    pip install -e .
+    pip3 install -e .
     cd ..
 fi
 
